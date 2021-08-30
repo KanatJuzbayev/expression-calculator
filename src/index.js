@@ -54,7 +54,7 @@ function fixToReverse(tokens) {
       let op = null;
       while ((op = stack.pop()) !== "(") {
         if (stack.length === 0) {
-          throw new Error("ExpressionError: Brackets must be paired");
+          throw new Error("Error: Brackets not paired");
         }
         queue.push(op);
       }
@@ -76,7 +76,7 @@ function fixToReverse(tokens) {
   }
   while (stack.length) {
     let op = stack.pop();
-    if (op === "(") throw new Error("ExpressionError: Brackets must be paired");
+    if (op === "(") throw new Error("Error: Brackets not paired");
     queue.push(op);
   }
 
